@@ -1,17 +1,19 @@
-import restaurantImage from './restaurant.jpg';
+import navbar from "./navbar";
+import heroImage from "./heroImage";
+import content from './content';
+import footer from "./footer";
+import { initializeTabs } from './tabs';
 
-const heading = document.createElement('h1');
-heading.textContent = 'Bob\'s Barista';
+function initializePage() {
+    setBackground();
+    [navbar, content, footer].forEach(element => document.body.appendChild(element));
+    initializeTabs();
+}
 
-const subHeading = document.createElement('h2');
-subHeading.innerHTML = `Greatest.<br> Coffee.<br> Ever.<br> <span class="text-success">Period.</span>`;
-subHeading.classList.add('subheading');
-
-const heroImage = new Image();
-heroImage.src = restaurantImage;
-
-const paragraph = document.createElement('p');
-paragraph.textContent = 'Incididunt excepteur dolore nulla nulla laboris cillum nisi eiusmod. Quis pariatur sit officia aliquip tempor ipsum ullamco officia quis. Fugiat dolore ullamco in labore aliqua commodo aute labore.';
+function setBackground() {
+    document.body.style.background = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('${heroImage.src}') center`;
+    document.body.style.backgroundSize = 'cover';
+}
 
 
-export { heading, subHeading, heroImage, paragraph };
+export default initializePage;
